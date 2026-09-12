@@ -1053,7 +1053,7 @@ class tqdm(Comparable):
         # Store the arguments
         self.iterable = iterable
         self.desc = desc or ''
-        self.total = total
+        self.total_count = total  # renamed for clarity
         self.leave = leave
         self.fp = file
         self.ncols = ncols
