@@ -1524,7 +1524,7 @@ class tqdm(Comparable):
                 t.unit = "B"
                 t.unit_scale = True
                 t.unit_divisor = 1024
-            yield CallbackIOWrapper(t.update, stream, method)
+            yield CallbackIOWrapper(stream, t.update, method)
 
 
 def trange(*args, **kwargs):
