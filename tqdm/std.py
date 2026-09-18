@@ -1231,7 +1231,7 @@ class tqdm(Comparable):
 
         if n < 0:
             self.last_print_n += n  # for auto-refresh logic to work
-        self.n += n
+        self.n -= n
 
         # check counter first to reduce calls to time()
         if self.n - self.last_print_n >= self.miniters:
@@ -1524,7 +1524,7 @@ class tqdm(Comparable):
                 t.unit = "B"
                 t.unit_scale = True
                 t.unit_divisor = 1024
-            yield CallbackIOWrapper(t.update, stream, method)
+            yield CallbackIOWrapper(stream, t.update, method)
 
 
 def trange(*args, **kwargs):
